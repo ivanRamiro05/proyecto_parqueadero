@@ -28,7 +28,7 @@ def send_data():
     print("Nuevo usuario registrado. NOMBRE: {} | TIEMPO: {} ".format(username_data, tiempo_data))
 
     username_entry.delete(0, END)
-    código_entry.delete(0, END)
+
     #tipodevehículo_entry.delete(0, END)
     placa_entry.delete(0, END)
     tiempo_entry.delete(0, END)
@@ -57,6 +57,11 @@ def es_Carro():
 def es_Moto():
     vehiculo_var.set("Moto")
 
+def espacio():
+    if opcion == carro:
+        espacios_disponibles.list=(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
+    if opcion== moto:
+        espacios_disponibles.list=(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20)
 
 def ventana_sec():
     ventana_sec = Toplevel()
@@ -75,7 +80,7 @@ def ventana_sec():
     
     
     
-username_label = Label(text="NOMBRE COMPLETO", bg="#FFEEDD")
+username_label = Label(text="NOMBRE COMPLETO", bg="red")
 username_label.place(x=22, y=70)
 código_label = Label(text="CÓDIGO", bg="#FFEEDD")
 código_label.place(x=22, y=130)
@@ -103,6 +108,7 @@ tiempo_entry = Entry(textvariable=tiempo, width="40")
 
 vehiculo_entry = Entry(bd=5, state="disabled", textvariable=vehiculo_var)
 vehiculo_var.set("Pulse sobre \"vehiculo\"")
+
 vehiculo_menu = Menubutton(text = "vehiculo:", relief="raised")
 vehiculo_menu.menu = Menu(vehiculo_menu, tearoff=0)
 vehiculo_menu.menu.add_command(label="Carro", command=es_Carro())
@@ -118,6 +124,7 @@ def aceptar():
         selecciones += "Provincia : "+provincia+"\n"
     selecciones += "Edad: "+edad
     selecciones_label.config(text=selecciones)
+
 
 
 
